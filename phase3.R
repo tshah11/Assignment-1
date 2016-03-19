@@ -1,0 +1,15 @@
+---------------------Phase3--------------------------------------------------------------------------
+  phase3 <- read.csv("F:/phase3", header=TRUE)
+  head(phase3)
+  str(phase3)
+  TELNET <- subset(phase3, Protocol == "TELNET")
+  attacker <- subset(phase3, Source == "202.77.162.213")
+  targetmachines <- subset(phase3, Source != "202.77.162.213")
+  head(TELNET)
+  str(TELNET)
+  head(attacker)
+  tail(targetmachines)
+  qplot(Length, Destination, data = TELNET, color = Source)
+  qplot(Time, Length, data =  targetmachines, geom = "line")
+  -------------------The graph is generated here------------------------------------------------------------
+  qplot(Time, Length, data =  attacker, geom = "line", main = "Mapping of packet data from attacker")
